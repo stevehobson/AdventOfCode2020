@@ -1,48 +1,52 @@
 class Day01 {
     //Solution to https://adventofcode.com/2020/day/1
-
-    private val input1 = Day01::class.java.getResource("Day01.txt").readText().split("\n")
     private val magicNumber = 2020
 
     fun printSolution() {
-        println("Part 1 solution: ${part1(input1)}")
-        println("Part 2 solution: ${part2(input1)}")
+        val input = InputReader("Day01.txt").getInput().map{it.toInt()}
+        println("Part 1 solution: ${part1(input)}")
+        println("Part 2 solution: ${part2(input)}")
     }
 
-    fun part1(input : List<String>) : String {
-        val numericInput = input.map { it.trim().toInt() }
+    private fun generatePairs(input: List<Int>): List<List<Int>> {
+        val output = mutableListOf<List<Int>>()
+        for (i in input.indices) {
+            for (j in i + 1 until input.size) {
+                output.add(listOf(input[i],input[j]))
+            }
+        }
+        return output
+    }
 
-        for (i in 0 until numericInput.size-1) {
-            for (j in i+1 until numericInput.size-1) {
-                val a = numericInput[i]
-                val b = numericInput[j]
-                if ((a + b) == magicNumber) {
-                    return (a * b).toString()
+    private fun generateTriples(input: List<Int>): List<List<Int>> {
+        val output = mutableListOf<List<Int>>()
+        for (i in input.indices) {
+            for (j in i + 1 until input.size) {
+                for (k in j + 1 until input.size) {
+                    output.add(listOf(input[i],input[j],input[k]))
                 }
             }
         }
-
-        return ""
+        return output
     }
 
-    fun part2(input : List<String>) : String {
-        val numericInput = input.map { it.trim().toInt() }
-
-        for (i in 0 until numericInput.size-1) {
-            for (j in i+1 until numericInput.size-1) {
-                for (k in j+1 until numericInput.size-1) {
-                    val a = numericInput[i]
-                    val b = numericInput[j]
-                    val c = numericInput[k]
-
-                    if ((a + b + c) == magicNumber) {
-                        return (a * b * c).toString()
-                    }
-                }
+    private fun findMagicProduct(tuples: List<List<Int>>) : Int {
+        for (p in tuples) {
+            if (p.sum() == magicNumber) {
+                return p.reduce(Int::times) //returns product of list
             }
         }
+        return 0
+    }
 
-        return ""
+    fun part1(input : List<Int>) : String {
+        val pairs = generatePairs(input)
+        return findMagicProduct(pairs).toString()
+    }
+
+    fun part2(input : List<Int>) : String {
+        val triples = generateTriples(input)
+        return findMagicProduct(triples).toString()
     }
 
 }
