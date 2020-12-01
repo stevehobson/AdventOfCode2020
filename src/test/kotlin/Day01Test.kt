@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions.*
 
 internal class Day01Test {
 
-    private val input = Day01::class.java.getResource("Day01.txt").readText().split("\n")
+    private val input = InputReader("Day01Example.txt").getInput().map{it.toInt()}
 
     @BeforeEach
     fun setUp() {
@@ -23,7 +23,7 @@ internal class Day01Test {
 
         val result = day01.part1(input)
 
-        assertEquals("514579",result)
+        assertEquals("514579", result)
     }
 
     @Test
@@ -32,6 +32,6 @@ internal class Day01Test {
 
         val result = day01.part2(input)
 
-        assertEquals("241861950",result)
+        assertEquals("241861950", result)
     }
 }
