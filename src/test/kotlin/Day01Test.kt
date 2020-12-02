@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions.*
 
 internal class Day01Test {
 
-    private val input = InputReader("Day01Example.txt").getInput().map{it.toInt()}
+    private val input = InputReader("Day01Example.txt").getInput()
 
     @BeforeEach
     fun setUp() {
