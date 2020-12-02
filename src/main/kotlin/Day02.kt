@@ -9,7 +9,7 @@ class Day02: IDay {
 
     private fun parseLine(line: String): PasswordAndPolicy {
         //regex for lines of the form 2-9 c: ccccccccc
-        val passwordRegex = "([0-9]*)-([0-9]*) ([a-z]): ([a-z]*)".toRegex()
+        val passwordRegex = "([0-9]+)-([0-9]+) ([a-z]): ([a-z]+)".toRegex()
 
         return passwordRegex.matchEntire(line)
             ?.destructured
@@ -20,23 +20,21 @@ class Day02: IDay {
     }
 
     override fun part1(input: List<String>): String {
-        var count = 0
-        for (line in input){
-            val p = parseLine(line)
-            val charCount = p.password.count { it==p.char }
-            if (charCount>=p.val1 && charCount<=p.val2)
-                count++
-        }
-        return count.toString()
+        return input.count { passwordMeetsRule1(it) }.toString()
+    }
+
+    private fun passwordMeetsRule1(line: String): Boolean {
+        val p = parseLine(line)
+        val charCount = p.password.count { it==p.char }
+        return charCount>=p.val1 && charCount<=p.val2
+    }
+
+    private fun passwordMeetsRule2(line: String): Boolean {
+        val p = parseLine(line)
+        return (p.password[p.val1-1]==p.char) xor (p.password[p.val2-1]==p.char)
     }
 
     override fun part2(input: List<String>): String {
-        var count = 0
-        for (line in input){
-            val p = parseLine(line)
-            if ((p.password[p.val1-1]==p.char) xor (p.password[p.val2-1]==p.char))
-                count++
-        }
-        return count.toString()
+        return input.count { passwordMeetsRule2(it) }.toString()
     }
 }

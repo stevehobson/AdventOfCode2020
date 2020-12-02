@@ -11,7 +11,7 @@ internal class DayTest {
 
     @TestFactory
     fun testPart1s() = daysData.map {
-         dynamicTest("Testing ${it.inputFileName} part 1 gives ${it.part1Example}") {
+         dynamicTest("Testing Day ${it.implementation.id()} with ${it.inputFileName}: Part 1 gives ${it.part1Example}") {
             val input = InputReader(it.inputFileName).getInput()
             assertEquals(it.part1Example, it.implementation.part1(input))
          }
@@ -19,7 +19,7 @@ internal class DayTest {
 
     @TestFactory
     fun testPart2s() = daysData.map {
-        dynamicTest("Testing ${it.inputFileName} part 2 gives ${it.part2Example}") {
+        dynamicTest("Testing Day ${it.implementation.id()} with ${it.inputFileName}: Part 2 gives ${it.part2Example}") {
             val input = InputReader(it.inputFileName).getInput()
             assertEquals(it.part2Example, it.implementation.part2(input))
         }
