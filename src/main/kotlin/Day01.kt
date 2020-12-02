@@ -1,12 +1,6 @@
-class Day01 {
+class Day01 : IDay {
     //Solution to https://adventofcode.com/2020/day/1
     private val magicNumber = 2020
-
-    fun printSolution() {
-        val input = InputReader("Day01.txt").getInput().map{it.toInt()}
-        println("Part 1 solution: ${part1(input)}")
-        println("Part 2 solution: ${part2(input)}")
-    }
 
     private fun generatePairs(input: List<Int>): List<List<Int>> {
         val output = mutableListOf<List<Int>>()
@@ -39,13 +33,13 @@ class Day01 {
         return 0
     }
 
-    fun part1(input : List<Int>) : String {
-        val pairs = generatePairs(input)
+    override fun part1(input : List<String>) : String {
+        val pairs = generatePairs(input.map{it.toInt()})
         return findMagicProduct(pairs).toString()
     }
 
-    fun part2(input : List<Int>) : String {
-        val triples = generateTriples(input)
+    override fun part2(input : List<String>) : String {
+        val triples = generateTriples(input.map{it.toInt()})
         return findMagicProduct(triples).toString()
     }
 
