@@ -33,6 +33,10 @@ class Day01 : IDay {
         return 0
     }
 
+    override fun id(): Int {
+        return 1
+    }
+
     override fun part1(input : List<String>) : String {
         val pairs = generatePairs(input.map{it.toInt()})
         return findMagicProduct(pairs).toString()
