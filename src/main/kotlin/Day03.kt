@@ -1,4 +1,4 @@
-class Day03: IDay {
+class Day03(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/3
     override fun id(): Int {
         return 3
@@ -8,28 +8,24 @@ class Day03: IDay {
         return row[col % row.length] == '#'
     }
 
-    private fun nTreesHit(input: List<String>, xTrajectory: Int, yTrajectory: Int) : Int {
+    private fun nTreesHit(vector: Pair<Int,Int>) : Int {
         var nTrees = 0
         var col = 0
-        for (r in input.indices step yTrajectory) {
+        for (r in input.indices step vector.second) {
             val rowData = input[r]
             if (isTree(rowData,col))
                 nTrees++
-            col+=xTrajectory
+            col+=vector.first
         }
         return nTrees
     }
 
-    override fun part1(input: List<String>): String {
-        return nTreesHit(input,3,1).toString()
+    override fun part1(): String {
+        return nTreesHit(3 to 1).toString()
     }
 
-    override fun part2(input: List<String>): String {
-        val total =  nTreesHit(input,1,1) *
-                nTreesHit(input,3,1) *
-                nTreesHit(input,5,1) *
-                nTreesHit(input,7,1) *
-                nTreesHit(input,1,2)
-        return total.toString()
+    override fun part2(): String {
+        return listOf( 1 to 1, 3 to 1, 5 to 1, 7 to 1, 1 to 2)
+            .map{nTreesHit(it)}.reduce(Int::times).toString()
     }
 }

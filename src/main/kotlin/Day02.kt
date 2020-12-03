@@ -1,4 +1,4 @@
-class Day02: IDay {
+class Day02(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/2
 
     data class PasswordAndPolicy(val val1: Int, val val2: Int, val char: Char, val password: String)
@@ -19,7 +19,7 @@ class Day02: IDay {
             ?: throw IllegalArgumentException("Bad input '$line'")
     }
 
-    override fun part1(input: List<String>): String {
+    override fun part1(): String {
         return input.count { passwordMeetsRule1(it) }.toString()
     }
 
@@ -34,7 +34,7 @@ class Day02: IDay {
         return (p.password[p.val1-1]==p.char) xor (p.password[p.val2-1]==p.char)
     }
 
-    override fun part2(input: List<String>): String {
+    override fun part2(): String {
         return input.count { passwordMeetsRule2(it) }.toString()
     }
 }
