@@ -1,33 +1,57 @@
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.DynamicTest.dynamicTest
-import org.junit.jupiter.api.TestFactory
+import org.junit.jupiter.api.Test
 
 
 internal class DayTest {
 
-    private val daysData = listOf(
-            TestData(Day01("Day01Example.txt"),"514579", "241861950"),
-            TestData(Day02("Day02Example.txt"),"2", "1"),
-            TestData(Day03("Day03Example.txt"),"7", "336"),
-            TestData(Day04("Day04Example.txt"),"2", "2"))
-
-    @TestFactory
-    fun testPart1s() = daysData.map {
-         dynamicTest("Testing Day ${it.implementation.id()}: Part 1 gives ${it.part1Example}") {
-            assertEquals(it.part1Example, it.implementation.part1())
-         }
+    @Test
+    fun day1_part1_example() {
+        assertEquals("514579", Day01("Day01Example.txt").part1())
     }
 
-    @TestFactory
-    fun testPart2s() = daysData.map {
-        dynamicTest("Testing Day ${it.implementation.id()}: Part 2 gives ${it.part2Example}") {
-            assertEquals(it.part2Example, it.implementation.part2())
-        }
+    @Test
+    fun day1_part2_example() {
+        assertEquals("241861950", Day01("Day01Example.txt").part2())
     }
+
+    @Test
+    fun day2_part1_example() {
+        assertEquals("2", Day02("Day02Example.txt").part1())
+    }
+
+    @Test
+    fun day2_part2_example() {
+        assertEquals("1", Day02("Day02Example.txt").part2())
+    }
+
+    @Test
+    fun day3_part1_example() {
+        assertEquals("7", Day03("Day03Example.txt").part1())
+    }
+
+    @Test
+    fun day3_part2_example() {
+        assertEquals("336", Day03("Day03Example.txt").part2())
+    }
+
+    @Test
+    fun day4_part1_example() {
+        assertEquals("2", Day04("Day04Example.txt").part1())
+    }
+
+    @Test
+    fun day4_part2_allInvalid() {
+        assertEquals("0", Day04("Day04AllInvalid.txt").part2())
+    }
+
+    @Test
+    fun day4_part2_allValid() {
+        assertEquals("4", Day04("Day04AllValid.txt").part2())
+    }
+
+    @Test
+    fun day5_part1_example() {
+        assertEquals("820", Day05("Day05Example.txt").part1())
+    }
+
 }
-
-data class TestData(
-    val implementation: Day,
-    val part1Example: String,
-    val part2Example: String
-)
