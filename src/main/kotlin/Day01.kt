@@ -38,12 +38,12 @@ class Day01(inputFileName: String) : Day(inputFileName) {
     }
 
     override fun part1() : String {
-        val pairs = generatePairs(input.map{it.toInt()})
+        val pairs = generatePairs(inputAsLines.map{it.toInt()})
         return findMagicProduct(pairs).toString()
     }
 
     override fun part2() : String {
-        val triples = generateTriples(input.map{it.toInt()})
+        val triples = generateTriples(inputAsLines.map{it.toInt()})
         return findMagicProduct(triples).toString()
     }
 

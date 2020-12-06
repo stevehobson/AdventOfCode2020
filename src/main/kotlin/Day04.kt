@@ -6,7 +6,7 @@ class Day04(inputFileName: String): Day(inputFileName) {
     private fun getPassports(): List<HashMap<String, String>> {
         val passports = mutableListOf(HashMap<String, String>())
 
-        for (line in input) {
+        for (line in inputAsLines) {
             if (line.isEmpty()) {
                 passports.add(HashMap())
             } else {
