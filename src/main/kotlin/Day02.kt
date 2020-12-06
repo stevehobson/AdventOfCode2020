@@ -20,7 +20,7 @@ class Day02(inputFileName: String): Day(inputFileName) {
     }
 
     override fun part1(): String {
-        return input.count { passwordMeetsRule1(it) }.toString()
+        return inputAsLines.count { passwordMeetsRule1(it) }.toString()
     }
 
     private fun passwordMeetsRule1(line: String): Boolean {
@@ -35,6 +35,6 @@ class Day02(inputFileName: String): Day(inputFileName) {
     }
 
     override fun part2(): String {
-        return input.count { passwordMeetsRule2(it) }.toString()
+        return inputAsLines.count { passwordMeetsRule2(it) }.toString()
     }
 }

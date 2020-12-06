@@ -1,6 +1,12 @@
 abstract class Day(inputFileName: String) {
 
-    protected val input =  Day::class.java.getResource(inputFileName).readText().lines()
+    private val inputFile = Day::class.java.getResource(inputFileName)
+    protected val inputAsLines by lazy { inputFile.readText().lines() }
+    protected val inputAsGroupedLines by lazy {
+        inputFile.readText()
+            .split(System.lineSeparator()+System.lineSeparator())
+            .map { it.lines() }
+    }
 
     abstract fun id() : Int
     abstract  fun part1() : String

@@ -11,7 +11,7 @@ class Day05(inputFileName: String): Day(inputFileName) {
     }
 
     private fun getSeatIds(): List<Int> {
-        return input.map{ strToSeatId(it) }
+        return inputAsLines.map{ strToSeatId(it) }
     }
 
     override fun part1(): String {

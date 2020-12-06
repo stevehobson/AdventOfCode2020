@@ -11,8 +11,8 @@ class Day03(inputFileName: String): Day(inputFileName) {
     private fun nTreesHit(vector: Pair<Int,Int>) : Int {
         var nTrees = 0
         var col = 0
-        for (r in input.indices step vector.second) {
-            val rowData = input[r]
+        for (r in inputAsLines.indices step vector.second) {
+            val rowData = inputAsLines[r]
             if (isTree(rowData,col))
                 nTrees++
             col+=vector.first
