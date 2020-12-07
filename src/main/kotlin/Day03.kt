@@ -1,8 +1,7 @@
 class Day03(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/3
-    override fun id(): Int {
-        return 3
-    }
+
+    override fun id() = 3
 
     private fun isTree(row: String, col: Int): Boolean {
         return row[col % row.length] == '#'
