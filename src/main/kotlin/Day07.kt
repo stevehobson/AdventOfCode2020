@@ -1,5 +1,6 @@
 class Day07(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/7
+
     override fun id() = 7
 
     data class BagCount(val colour: String, val count: Int)

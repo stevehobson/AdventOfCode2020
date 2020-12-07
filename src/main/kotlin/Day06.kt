@@ -1,5 +1,6 @@
 class Day06(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/6
+
     override fun id() = 6
 
     override fun part1(): String {

@@ -1,11 +1,9 @@
 class Day02(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/2
 
-    data class PasswordAndPolicy(val val1: Int, val val2: Int, val char: Char, val password: String)
+    override fun id() = 2
 
-    override fun id(): Int {
-        return 2
-    }
+    data class PasswordAndPolicy(val val1: Int, val val2: Int, val char: Char, val password: String)
 
     private fun parseLine(line: String): PasswordAndPolicy {
         //regex for lines of the form 2-9 c: ccccccccc

@@ -1,5 +1,8 @@
 class Day01(inputFileName: String) : Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/1
+
+    override fun id() = 1
+
     private val magicNumber = 2020
 
     private fun generatePairs(input: List<Int>): List<List<Int>> {
@@ -31,10 +34,6 @@ class Day01(inputFileName: String) : Day(inputFileName) {
             }
         }
         return 0
-    }
-
-    override fun id(): Int {
-        return 1
     }
 
     override fun part1() : String {

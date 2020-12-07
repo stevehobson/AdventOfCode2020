@@ -1,5 +1,6 @@
 class Day05(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/5
+
     override fun id() = 5
 
     private fun strToSeatId(s: String): Int {

@@ -1,19 +1,12 @@
 class Day04(inputFileName: String): Day(inputFileName) {
     //Solution to https://adventofcode.com/2020/day/4
 
+    override fun id() = 4
+
     private val passports = getPassports()
 
-    private fun getPassports(): List<HashMap<String, String>> {
-        val passports = mutableListOf(HashMap<String, String>())
-
-        for (line in inputAsLines) {
-            if (line.isEmpty()) {
-                passports.add(HashMap())
-            } else {
-                passports.last().putAll(parseLine(line))
-            }
-        }
-        return passports
+    private fun getPassports(): List<Map<String, String>> {
+        return inputAsGroupedLines.map { parseLine(it.joinToString(separator=" ")) }
     }
 
     private fun parseLine(line: String): Map<String, String> {
@@ -23,15 +16,11 @@ class Day04(inputFileName: String): Day(inputFileName) {
             .toMap()
     }
 
-    override fun id(): Int {
-        return 4
-    }
-
     override fun part1(): String {
         return passports.filter{isValidPart1(it)}.size.toString()
     }
 
-    private fun isValidPart1(passport: HashMap<String, String>): Boolean {
+    private fun isValidPart1(passport: Map<String, String>): Boolean {
         val mandatoryFields = setOf("byr","iyr","eyr","hgt","hcl","ecl","pid")
         return passport.keys.containsAll(mandatoryFields)
     }
@@ -40,7 +29,7 @@ class Day04(inputFileName: String): Day(inputFileName) {
         return passports.filter{isValidPart1(it)}.filter{isValidPart2(it)}.size.toString()
     }
 
-    private fun isValidPart2(passport: HashMap<String, String>): Boolean {
+    private fun isValidPart2(passport: Map<String, String>): Boolean {
                 // byr (Birth Year) - four digits; at least 1920 and at most 2002.
         return passport["byr"]?.toInt() in 1920..2002 &&
                 // iyr (Issue Year) - four digits; at least 2010 and at most 2020.
