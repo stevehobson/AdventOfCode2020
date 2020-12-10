@@ -89,4 +89,14 @@ internal class DayTest {
         assertEquals("8", Day08("Day08Example.txt").part2())
     }
 
+    @Test
+    fun day9_part1_example() {
+        assertEquals("127", Day09("Day09Example.txt",5).part1())
+    }
+
+    @Test
+    fun day9_part2_example() {
+        assertEquals("62", Day09("Day09Example.txt",5).part2())
+    }
+
 }
