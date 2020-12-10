@@ -18,4 +18,29 @@ abstract class Day(inputFileName: String) {
         println("Part 1: ${part1()}")
         println("Part 2: ${part2()}")
     }
+
+    //List extension functions
+    //returns list of all combinations of pairs of items in the list
+    protected fun <T> List<T>.asListOfPairs(): List<List<T>> {
+        val output = mutableListOf<List<T>>()
+        for (i in this.indices) {
+            for (j in i + 1 until this.size) {
+                output.add(listOf(this[i],this[j]))
+            }
+        }
+        return output
+    }
+
+    //returns list of all combinations of triples of items in the list
+    protected fun <T> List<T>.asListOfTriples(): List<List<T>> {
+        val output = mutableListOf<List<T>>()
+        for (i in this.indices) {
+            for (j in i + 1 until this.size) {
+                for (k in j + 1 until this.size) {
+                    output.add(listOf(this[i],this[j],this[k]))
+                }
+            }
+        }
+        return output
+    }
 }
