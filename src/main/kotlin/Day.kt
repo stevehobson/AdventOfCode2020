@@ -1,3 +1,6 @@
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTimedValue
+
 abstract class Day(private val inputFileName: String) {
 
     private val inputFile = Day::class.java.getResource(inputFileName)
@@ -14,11 +17,14 @@ abstract class Day(private val inputFileName: String) {
 
     fun getInputName() : String = inputFileName
 
+    @ExperimentalTime
     fun printSolution() {
         println("")
         println("Day ${id()} solutions")
-        println("Part 1: ${part1()}")
-        println("Part 2: ${part2()}")
+        val part1Solution = measureTimedValue { part1() }
+        println("Part 1: ${part1Solution.value} (${part1Solution.duration})")
+        val part2Solution = measureTimedValue { part2() }
+        println("Part 2: ${part2Solution.value} (${part2Solution.duration})")
     }
 
     //List extension functions
