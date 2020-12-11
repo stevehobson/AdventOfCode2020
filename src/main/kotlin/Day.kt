@@ -1,4 +1,4 @@
-abstract class Day(inputFileName: String) {
+abstract class Day(private val inputFileName: String) {
 
     private val inputFile = Day::class.java.getResource(inputFileName)
     protected val inputAsLines by lazy { inputFile.readText().lines() }
@@ -11,6 +11,8 @@ abstract class Day(inputFileName: String) {
     abstract fun id() : Int
     abstract  fun part1() : String
     abstract fun part2() : String
+
+    fun getInputName() : String = inputFileName
 
     fun printSolution() {
         println("")
