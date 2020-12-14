@@ -14,4 +14,5 @@ fun main () {
         Day10("Day10.txt").printSolution()
         Day11("Day11.txt").printSolution()
         Day12("Day12.txt").printSolution()
+        Day13("Day13.txt").printSolution()
 }
