@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DynamicTest
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestFactory
 
 
@@ -26,7 +25,8 @@ internal class DayTest {
         TestData(Day11("Day11Example.txt"),"37"),
         TestData(Day12("Day12Example.txt"), "25"),
         TestData(Day13("Day13Example.txt"), "295"),
-        TestData(Day14("Day14Example.txt"), "165")
+        TestData(Day14("Day14Example.txt"), "165"),
+        TestData(Day15("Day15Example.txt"), "436")
     )
 
     private val part2Tests = listOf(
