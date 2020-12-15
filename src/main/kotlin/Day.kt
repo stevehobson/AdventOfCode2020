@@ -4,7 +4,8 @@ import kotlin.time.measureTimedValue
 abstract class Day(private val inputFileName: String) {
 
     private val inputFile = Day::class.java.getResource(inputFileName)
-    protected val inputAsLines by lazy { inputFile.readText().lines() }
+    protected val inputAsLine by lazy {inputFile.readText()}
+    protected val inputAsLines by lazy { inputAsLine.lines() }
     protected val inputAsGroupedLines by lazy {
         inputFile.readText()
             .split(System.lineSeparator()+System.lineSeparator())
