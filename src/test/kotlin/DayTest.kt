@@ -25,7 +25,8 @@ internal class DayTest {
         TestData(Day10("Day10Example2.txt"),"220"),
         TestData(Day11("Day11Example.txt"),"37"),
         TestData(Day12("Day12Example.txt"), "25"),
-        TestData(Day13("Day13Example.txt"), "295")
+        TestData(Day13("Day13Example.txt"), "295"),
+        TestData(Day14("Day14Example.txt"), "165")
     )
 
     private val part2Tests = listOf(
@@ -48,7 +49,8 @@ internal class DayTest {
         TestData(Day13("Day13Example3.txt"), "754018"),
         TestData(Day13("Day13Example4.txt"), "779210"),
         TestData(Day13("Day13Example5.txt"), "1261476"),
-        TestData(Day13("Day13Example6.txt"), "1202161486")
+        TestData(Day13("Day13Example6.txt"), "1202161486"),
+        TestData(Day14("Day14Example2.txt"), "208")
     )
 
     @TestFactory
