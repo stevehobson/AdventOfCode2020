@@ -43,7 +43,7 @@ class Day16(inputFileName: String): Day(inputFileName) {
 
     override fun part2(): String {
 
-        val validOtherTickets = otherTickets.filter { ticket -> ticket.map { v -> v.obeysAnyRule()}.all { it } }
+        val validOtherTickets = otherTickets.filter { ticket -> ticket.all { v -> v.obeysAnyRule()} }
         val allTickets = validOtherTickets.plusElement(myTicket)
 
         val fieldValues = rules.keys.indices.map { i-> allTickets.map {it[i]} }
